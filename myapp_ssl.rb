@@ -13,7 +13,9 @@ class SinatraApp < Sinatra::Base
   end
 
   use OmniAuth::Builder do
-    provider :facebook,  '__putyourappid__', '__putyoursecret__'
+    provider :facebook,  '__putyourappid__', '__putyoursecret__',
+          scope: 'email,public_profile,user_birthday,user_friends,user_hometown,user_location',
+          info_fields: 'about,id,email,last_name,first_name,name,short_name,birthday,gender,hometown'
     #provider :github,  '__putyourappid__', '__putyoursecret__'
     #provider :twitter, '__putyourappid__', '__putyoursecret__'
   end
